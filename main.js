@@ -41,13 +41,13 @@
 
         // PUBLIC
         return {
-            
+
             // FUNCTION: start( void ) void    
             start : function( ){
-                
+
                 // call internal
                 self.start( );
-                
+    
             }
             
         };

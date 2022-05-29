@@ -24,11 +24,11 @@
         var self = this;                                    // object
         self.moduleName = 'debuggerModule';                 // string
         self.options = options;                             // named array / undefined
-        self.on = false;                                    // boolean
+        self.on = true;                                    // boolean
         self.elementIds = {                                 // named array 
-            'container'         :   self.ModuleName + '_Container', // string
-            'dragHandle'        :   self.ModuleName + '_DragHandle', // string
-            'content'           :   self.ModuleName + '_Content', // string
+            'container'         :   self.moduleName + '_Container', // string
+            'dragHandle'        :   self.moduleName + '_DragHandle', // string
+            'content'           :   self.moduleName + '_Content', // string
         };                                                  // done named array  
         self.layoutOptions = {                              // named array 
             'zIndex'            :   8000,                   // integer
@@ -91,8 +91,15 @@
             }
             // debug ! on
 
+            // get element
+            let content = document.getElementById( self.elementIds['content'] );
+
+            // create the line
+            let line = document.createElement( 'div' );
+            line.textContent = self.lineCounter + '  ' + message ;
+
             // show message
-            $( '#' + self.elementIds['content'] ).prepend( self.lineCounter + '&#09;&#09;' + message + '<br/>' );
+            content.prepend( line );
                 
             // update line counter
             self.lineCounter++;
@@ -105,8 +112,8 @@
         self.extendOptions = function() {
         // FUNCTION: extendOptions( void ) void
 
-            // copy options
-            let options = jQuery.extend( {}, self.options );           
+            // get options
+            let options = debuggerApp.options.debugOptions;
 
             // set on
             self.on = options['on'] !== undefined && options['on'] === true ? true : false; 
@@ -128,20 +135,31 @@
             }
             // debug ! on
 
-            // get layout options
-            let layoutOptions = self.layoutOptions;
+            // create container
+            self.createContainer();
 
-            // get colors
-            let colors = self.colors;
+            // create drag handle
+            self.createDragHandle();
+
+            // create content
+            self.createContent();
+
+        // DONE FUNCTION: createHtml( void ) void
+        };
+        self.createContainer = function() {
+        // FUNCTION: createContainer( void ) void
 
             // get element ids
             let elementIds = self.elementIds;
 
-            // create the html for the window
-            let html = '';
-            
-            // debug div
-            html += '<div id="' + elementIds['container'] + '" ';
+            // get colors
+            let colors = self.colors;
+
+            // get layout options
+            let layoutOptions = self.layoutOptions;
+
+            // create the html
+            let html = '<div id="' + elementIds['container'] + '" ';
                 html += 'style="';
                     html += ' position:absolute; ';
                     html += ' top: ' + layoutOptions['top'] + 'px; ';
@@ -152,8 +170,24 @@
                     html += ' border-radius: 5px; ';
                 html += '"';
             html += '>';
-                // drag handle
-                html += '<div id="' + elementIds['dragHandle'] + '" ';
+            // done create html
+            
+            // add container
+            $( document.body ).append( html );
+            
+        // DONE FUNCTION: createContainer( void ) void
+        };
+        self.createDragHandle = function() {
+        // FUNCTION: createDragHandle( void ) void
+
+            // get element ids
+            let elementIds = self.elementIds;
+
+            // get colors
+            let colors = self.colors;
+
+            // create the html
+            let html = '<div id="' + elementIds['dragHandle'] + '" ';
                     html += 'style="';
                         html += ' height:20px; ';
                         html += ' padding-left: 14px; ';
@@ -162,9 +196,29 @@
                         html += ' font-size:12px;font-family:times new roman';
                     html += '"';
                 html += '>';
-                    html += 'Debugger';
+                        html += 'Debugger';
                 html += '</div>';
-                html += '<div id="' + elementIds['content'] + '" ';
+                // create the html
+            
+            // add drag handle
+            $( '#' + elementIds['container'] ).append( html );
+            
+        // DONE FUNCTION: createDragHandle( void ) void
+        };
+        self.createContent = function() {
+        // FUNCTION: createContent( void ) void
+
+            // get element ids
+            let elementIds = self.elementIds;
+
+            // get colors
+            let colors = self.colors;
+
+            // get layout options
+            let layoutOptions = self.layoutOptions;
+
+            // create the html
+            let html = '<div id="' + elementIds['content'] + '" ';
                     html += 'style="';
                         html += ' overflow: auto; ';
                         html += ' width: ' + layoutOptions['width'] + 'px; ';
@@ -177,12 +231,12 @@
                     
                 html += '</div>';
             html += '</div>';
-            // done debug div
+            // create the html
             
-            // add html
-            $( document.body ).append( html );
-
-        // DONE FUNCTION: createHtml( void ) void
+            // add content
+            $( '#' + elementIds['container'] ).append( html );
+            
+        // DONE FUNCTION: createContent( void ) void
         };
         self.addEvents = function() {
         // FUNCTION: addEvents( void ) void

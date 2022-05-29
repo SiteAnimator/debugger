@@ -23,11 +23,11 @@
         <br>
         The test module demonstrates how messages are sent to the debugger.<br>
         <br>
-        The debug window is drabable.<br>
-        Debugging is extremely useful to debug complex errors.<br>
-        The debugger can also be used in mobile appliations.<br>
+        The debug window is dragable.<br>
+        Debugging is extremely useful to resolve complex errors.<br>
+        The debugger can also be used in mobile applications.<br>
         <br>
-        This is an example in the series of modules created by Site Animator.<br>
+        This is an example in the series of modules created for the Site Animator project.<br>
         </div>
 
         <div style='padding-top: 40px;max-width: 800px; margin: 0 auto;'>
@@ -42,7 +42,6 @@
         <br>    
         </div>
         
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
                  
@@ -50,11 +49,12 @@
     "use strict";      
     
     // add the app object to the window
-    var debuggerApp = new function(){};
+    const debuggerApp = new function(){};
    
-    // debug options
+    // create denug options
     debuggerApp.options = {};
     
+    // set options
     debuggerApp.options.debugOptions = {
         'on'            : true,
         'layoutOptions' : {
@@ -81,6 +81,7 @@
     
 </script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="main.js"></script>
 <script src="debuggerModule.js"></script>
 <script src="testModule.js"></script>

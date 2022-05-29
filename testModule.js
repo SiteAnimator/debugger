@@ -117,7 +117,7 @@
             if( self.debugOn ) {
                 
                 // debug
-                debuggerApp.debug( self.moduleName + ' ' + message );
+                debuggerApp.debug( self.moduleName + ': ' + message );
                 
             }
             // done debug on

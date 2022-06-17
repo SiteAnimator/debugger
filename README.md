@@ -2,8 +2,8 @@
   
 Basic Javascript application module with debugger.  
   
-This is an example module in Javascript.  
-It is an application with several modules, including a debugger module.  
+This is an example application in Javascript.  
+The application contains several modules, including a debugger module.  
 The debugger module displays a container with messages from the modules of the application.  
 This is demonstrated with an example module.  
   

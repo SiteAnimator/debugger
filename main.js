@@ -4,20 +4,15 @@
     file:       main.js
     function:   This file contains the main application module.    
                 
-    Last revision: 10-05-2022
+    Last revision: 16-06-2022
  
 */    
 
 // create module function
 ( function( debuggerApp ){
     
-    // create name spaces
-    debuggerApp.modules = debuggerApp.modules ? debuggerApp.modules : {};
-    debuggerApp.modules.main = debuggerApp.modules.main ? debuggerApp.modules.main : {};
-    // create name spaces
-    
     // MODULE: mainModule( named array: options ) void 
-    debuggerApp.modules.main.mainModule = function( options ) {
+    debuggerApp.mainModule = function( options ) {
     
         // PRIVATE:
         
@@ -31,10 +26,10 @@
         // FUNCTION: start( void ) void
 
             // create debugger module
-            self.modules.debugger = new debuggerApp.modules.debugger.debuggerModule( self.options['debugOptions'] );
+            self.modules.debugger = new debuggerApp.service.debuggerModule( self.options['debugOptions'] );
 
             // create test module
-            self.modules.test = new debuggerApp.modules.test.testModule( );
+            self.modules.test = new debuggerApp.test.testModule( );
 
         // DONE FUNCTION: start( void ) void
         };

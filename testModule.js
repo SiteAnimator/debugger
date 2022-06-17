@@ -5,7 +5,7 @@
         function:   Demonstrates sending a message from
                     a module to the debugger. 
   
-        Last revision: 10-12-2020
+        Last revision: 16-06-2022
  
 */
 
@@ -13,10 +13,10 @@
 ( function( debuggerApp ){
     
     // create name space
-    debuggerApp.modules.test = debuggerApp.modules.test ? debuggerApp.modules.test : {};
+    debuggerApp.test = debuggerApp.test ? debuggerApp.test : {};
     
     // MODULE: testModule( void ) void 
-    debuggerApp.modules.test.testModule = function( ) {
+    debuggerApp.test.testModule = function( ) {
         
         // PRIVATE:
         

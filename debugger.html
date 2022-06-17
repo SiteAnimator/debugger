@@ -7,7 +7,7 @@
                 Contains a test module to demonstrate 
                 sending debug messages to the debugger by a module
 
-    Last revision: 10-05-2022
+    Last revision: 17-06-2022
  
 -->
 <html>
@@ -16,6 +16,16 @@
         <link id="favicon" href="https://www.siteanimator.com/logo/icon.ico" rel="shortcut icon" type="image/x-icon">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            
+            body {
+                background-color: black;
+                color: silver;
+                font-size: 1.2rem;
+                line-height: 1.8rem;
+            }
+            
+        </style>
     </head>
     <body>
         <div style='padding-top: 20px;max-width: 800px; margin: 0 auto;'>
@@ -71,7 +81,7 @@
     window.onload = function(){
 
         // create main
-        debuggerApp.main = new debuggerApp.modules.main.mainModule( debuggerApp.options );
+        debuggerApp.main = new debuggerApp.mainModule( debuggerApp.options );
         
         // start the application
         debuggerApp.main.start();

@@ -3,8 +3,10 @@
 
     file:       main.js
     function:   This file contains the main application module.    
-                
-    Last revision: 16-06-2022
+                handels start after page load
+                creates service modules
+
+    Last revision: 12-09-2022
  
 */    
 
@@ -26,7 +28,7 @@
         // FUNCTION: start( void ) void
 
             // create debugger module
-            self.modules.debugger = new debuggerApp.service.debuggerModule( self.options['debugOptions'] );
+            self.modules.debuggerModule = new debuggerApp.service.debuggerModule( self.options['debugOptions'] );
 
             // create test module
             self.modules.test = new debuggerApp.test.testModule( );

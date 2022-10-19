@@ -6,7 +6,7 @@
                 handels start after page load
                 creates service modules
 
-    Last revision: 12-09-2022
+    Last revision: 19-10-2022
  
 */    
 
@@ -27,8 +27,8 @@
         self.start = function() {
         // FUNCTION: start( void ) void
 
-            // create debugger module
-            self.modules.debuggerModule = new debuggerApp.service.debuggerModule( self.options['debugOptions'] );
+            // create debug module
+            self.modules.debug = new debuggerApp.service.debugModule( self.options['debugOptions'] );
 
             // create test module
             self.modules.test = new debuggerApp.test.testModule( );

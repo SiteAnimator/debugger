@@ -6,7 +6,7 @@
                     adds the funtion: 'debug' to the application
                     displays messages send through the debug function.
   
-        Last revision: 14-09-2022
+        Last revision: 19-10-2022
  
 */
 
@@ -16,13 +16,13 @@
     // create name space
     debuggerApp.service = debuggerApp.service ? debuggerApp.service : {};
     
-    // MODULE: debuggerModule( named array / undefined: options ) void 
-    debuggerApp.service.debuggerModule = function( options ) {        
+    // MODULE: debugModule( named array / undefined: options ) void 
+    debuggerApp.service.debugModule = function( options ) {        
         // PRIVATE:
         
         // MEMBERS
         var self = this;                                    // object
-        self.moduleName = 'debuggerModule';                 // string
+        self.moduleName = 'DebugModule';                    // string
         self.options = options;                             // named array / undefined
         self.on = true;                                    // boolean
         self.elementIds = {                                 // named array 
@@ -387,7 +387,7 @@
         // DONE PUBLIC
                 
     };
-    // DONE MODULE: debuggerModule( named array / undefined: options ) void 
+    // DONE MODULE: debugModule( named array / undefined: options ) void 
     
 })( debuggerApp );
 // done create module function
